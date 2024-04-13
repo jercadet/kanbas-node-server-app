@@ -6,8 +6,15 @@ import ModuleRoutes from "./Kanbas/modules/routes.js";
 import UserRoutes from "./Users/routes.js";
 import cors from "cors";
 import mongoose from "mongoose";
+import "dotenv/config";
+import session from "express-session";
 
-mongoose.connect("mongodb://localhost:27017/kanbas");
+
+// mongodb+srv://cadetj:cadetj@cluster0.lv8r2fn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/kanbas';
+mongoose.connect(CONNECTION_STRING);
+
+// mongoose.connect("mongodb://localhost:27017/kanbas");
 const app = express();
 app.use(
   cors({
