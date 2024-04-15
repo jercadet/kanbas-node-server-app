@@ -11,8 +11,13 @@ import session from "express-session";
 
 
 // mongodb+srv://cadetj:cadetj@cluster0.lv8r2fn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+// process.env.DB_CONNECTION_STRING ||
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://localhost:27017/kanbas';
-mongoose.connect(CONNECTION_STRING);
+try {
+    mongoose.connect(CONNECTION_STRING);
+} catch (err) {
+    console.log(err)
+}
 
 // mongoose.connect("mongodb://localhost:27017/kanbas");
 const app = express();
