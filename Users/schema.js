@@ -2,8 +2,6 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    // with _id, delete user works, without _id, create user works
-    // _id: String,
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     firstName: String,
