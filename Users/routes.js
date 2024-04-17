@@ -47,7 +47,7 @@ export default function UserRoutes(app) {
       req.session["currentUser"] = currentUser;
       res.json(currentUser);
     } else {
-      res.sendStatus(401);
+      res.status(400).json({ message: "Incorrect username or password" });
     }
   };
 
